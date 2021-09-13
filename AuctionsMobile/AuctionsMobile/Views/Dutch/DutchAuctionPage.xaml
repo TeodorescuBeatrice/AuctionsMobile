@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:AuctionsMobile.ViewModels.Dutch"
+             x:Class="AuctionsMobile.Views.Dutch.DutchAuctionPage">
+    <ContentPage.Content>
+        <StackLayout x:DataType="viewmodels:DutchAuctionViewModel" Spacing="20" Padding="15">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Text:" FontSize="Medium" />
+                <Label Text="{Binding CurrentItem.Text}" FontSize="Medium"/>
+            </StackLayout>
+
+            <Button Text="Start auction" Command="{Binding StartAuctionCommand}"></Button>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Current price:"/>
+                <Label Text="{Binding AuctioneerAgent.CurrentPrice, Mode=TwoWay}"/>
+            </StackLayout>
+            <Label Text="{Binding AuctioneerAgent.FinalMessage}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

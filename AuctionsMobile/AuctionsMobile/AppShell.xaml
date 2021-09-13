@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:english="clr-namespace:AuctionsMobile.Views.English"
+       xmlns:dutch="clr-namespace:AuctionsMobile.Views.Dutch"
+       xmlns:blind="clr-namespace:AuctionsMobile.Views.Blind"
+       xmlns:vickrey="clr-namespace:AuctionsMobile.Views.Vickrey"
+       Title="AuctionsMobile"
+       x:Class="AuctionsMobile.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Title="English" ContentTemplate="{DataTemplate english:EnglishItemsPage}" Icon="icon_english"/>
+        <ShellContent Title="Dutch" ContentTemplate="{DataTemplate dutch:DutchItemsPage}" Icon="icon_dutch"/>
+        <ShellContent Title="Blind" ContentTemplate="{DataTemplate blind:BlindItemsPage}" Icon="icon_blind"/>
+        <ShellContent Title="Vickrey" ContentTemplate="{DataTemplate vickrey:VickreyItemsPage}" Icon="icon_blind"/>
+    </TabBar>
+</Shell>

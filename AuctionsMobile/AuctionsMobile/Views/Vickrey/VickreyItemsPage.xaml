@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:model="clr-namespace:AuctionsMobile.Models"
+             x:Class="AuctionsMobile.Views.Vickrey.VickreyItemsPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Items}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout x:DataType="model:Item" Padding="5" Margin="5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ItemTappedCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="{Binding Text}"/>
+                            <Label Text="{Binding Description}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
